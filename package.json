@@ -1,0 +1,51 @@
+{
+  "$schema": "node_modules/@types/node/package.json",
+  "author": "fabien-h",
+  "bin": {
+    "visual-docs-playwright": "./dist/bin/cli.js"
+  },
+  "dependencies": {
+    "@types/node": "^22.10.5",
+    "commander": "^13.0.0",
+    "dotenv": "^16.4.7",
+    "fs-extra": "^11.2.0",
+    "marked": "^15.0.6",
+    "playwright": "^1.50.0",
+    "sharp": "^0.33.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "description": "Build a visual documentation from playwright tests",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/commander": "^2.12.5",
+    "@types/fs-extra": "^11.0.4",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.2.5"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "name": "visual-docs-playwright",
+  "scripts": {
+    "build": "npm run clean && tsc && node scripts/build.js",
+    "build:dev": "npm run clean && tsc --watch && node scripts/build.js",
+    "clean": "rimraf dist",
+    "cli": "node ./dist/bin/cli.js",
+    "start": "npm run build && node ./dist/bin/cli.js",
+    "tes:e2e": "playwright test",
+    "tes:e2e:debug": "playwright test --debug",
+    "tes:e2e:headed": "playwright test --headed",
+    "tes:e2e:report": "playwright show-report",
+    "tes:e2e:ui": "playwright test --ui",
+    "test": "jest"
+  },
+  "type": "module",
+  "version": "0.0.1"
+}
